@@ -8,7 +8,7 @@ def main():
     clean_screen()
     print(MENU_PRINCIPAL)
     try:
-      opcion = int(input("\n-> "))
+      opcion = int(input("-> "))
     except ValueError:
       print("dato no valido")
       pause_screen
@@ -21,7 +21,6 @@ def main():
           results()
         case 3:
           print(MENU_SALIR)
-          pause_screen()
           break
         case _:
           print("valor no encontrado")

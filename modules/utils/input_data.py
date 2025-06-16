@@ -55,12 +55,12 @@ def input_data():
       else:
         impuesto_otro = ((valor_base*impuesto_otro_input)/100)
         pause_screen()
-  #total = iva + ImpuestoEspecial + valorImpuestoLocal + impuestoOtro
-  #print(total)
   value_menu_continue = validate_menu_continuar()
   match value_menu_continue:
     case 1:
       return input_data()
     case 2:
+      total = iva + impuesto_especial + impuesto_local + impuesto_otro
+      print(MENU_RESULTADO)
       pause_screen()
 

@@ -36,10 +36,10 @@ MENU_RESULTADO = """---------------------------------------------------
 ---------------------------------------------------
 Precio Base: ${valor_base}
 Impuesto(s):
-- IVA (10%): $[iva]
-- Impuesto Especial (5%): $[valorImpuestoEspecial]
-- Impuesto Local (8%): $[valorImpuestoLocal]
-Total con impuestos: $[total]
+- IVA (10%): ${iva}
+- Impuesto Especial (5%): ${impuesto_especial}
+- Impuesto Local (8%): ${impuesto_local}
+Total con impuestos: ${total}
 
 ¿Desea hacer otro cálculo?
 1. Sí
