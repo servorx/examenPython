@@ -1,8 +1,8 @@
-import modules.utils.screenControllers as sc
-import modules.menus as menu
-from modules.controllers.impuesto import *
+from modules.utils.input_data import *
+from modules.utils.input_data import *
+from modules.utils.input_data import *
 
-def resultado():
+def results():
     sc.limpiar_pantalla()
     print(menu.MENU_RESULTADO)
     continuar = int(input("->"))

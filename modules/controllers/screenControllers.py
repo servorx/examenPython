@@ -1,13 +1,13 @@
 from os import system
 import sys 
 
-def limpiar_pantalla():
+def clean_screen():
     if sys.platform == "linux":
         system('clear')
     else:
         system('cls')
 
-def pausar_pantalla():
+def pause_screen():
     if sys.platform == "linux":
         x = input("presione una tecla para continuar...")
         return x

@@ -1,7 +1,7 @@
 import os
 import json
 from typing import Dict, List, Optional
-import modules.utils.screenControllers as sc
+import modules.controllers.screenControllers as sc
 
 def read_json(file_path: str) -> Dict:
     """Lee y retorna el contenido del archivo JSON"""

@@ -1,5 +1,3 @@
-
-
 MENU_PRINCIPAL = """---------------------------------------------------
                 CALCULADORA DE IMPUESTOS
 ---------------------------------------------------
@@ -36,7 +34,7 @@ MENU_IMPUESTO_CONTINUAR = """---------------------------------------------------
 MENU_RESULTADO = """---------------------------------------------------
                 RESULTADO DEL CÁLCULO
 ---------------------------------------------------
-Precio Base: $[precioBase]
+Precio Base: ${valor_base}
 Impuesto(s):
 - IVA (10%): $[iva]
 - Impuesto Especial (5%): $[valorImpuestoEspecial]
