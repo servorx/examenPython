@@ -24,4 +24,5 @@ def main():
           break
         case _:
           print("valor no encontrado")
+          pause_screen()
           return main

@@ -31,20 +31,6 @@ MENU_IMPUESTO_CONTINUAR = """---------------------------------------------------
 2. No
 ---------------------------------------------------"""
 
-MENU_RESULTADO = """---------------------------------------------------
-                RESULTADO DEL CÁLCULO
----------------------------------------------------
-Precio Base: ${valor_base}
-Impuesto(s):
-- IVA (10%): ${iva}
-- Impuesto Especial (5%): ${impuesto_especial}
-- Impuesto Local (8%): ${impuesto_local}
-Total con impuestos: ${total}
-
-¿Desea hacer otro cálculo?
-1. Sí
-2. No (Regresa al menú principal)
----------------------------------------------------"""
 
 MENU_VER = """---------------------------------------------------
                 TIPOS DE IMPUESTOS

@@ -7,15 +7,24 @@ def validate_menu_tipo():
   print(MENU_VER)
   try:
     value_menu = int(input("-> "))
+    return value_menu
   except ValueError:
-    print("ingreso un dato invalido")
+    print("ingresó un dato inválido")
     pause_screen()
-    return
+    return results()
 
 def results():
   value_menu = validate_menu_tipo()
   match value_menu:
     case 1:
+      print("Opción 1 seleccionada")
+      pause_screen()  
       return input_data()
     case 2:
-      return 
+      print("Opción 2 seleccionada")
+      pause_screen()
+      return
+    case _:
+      print("valor no encontrado")
+      pause_screen()
+      return results()

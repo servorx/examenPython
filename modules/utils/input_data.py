@@ -6,6 +6,7 @@ def validate_menu_calculo():
   print(MENU_IMPUESTO_CALCULO)
   try:
     valor_base = int(input("-> "))
+    return valor_base
   except ValueError:
     print("ingreso un dato invalido")
     pause_screen()
@@ -16,6 +17,7 @@ def validate_menu_tipo():
   print(MENU_IMPUESTO_TIPO)
   try:
     value_menu = int(input("-> "))
+    return value_menu
   except ValueError:
     print("ingreso un dato invalido")
     pause_screen()
@@ -26,12 +28,19 @@ def validate_menu_continuar():
   print(MENU_IMPUESTO_CONTINUAR)
   try:
     value_menu_continue = int(input("-> "))
+    return value_menu_continue
   except ValueError:
     print("ingreso un dato invalido")
     pause_screen()
     return
 
 def input_data():
+  # definir estas valores con 0 al principio en caso de que no se vayan a usar o calcular
+  iva = 0
+  impuesto_especial = 0
+  impuesto_local = 0
+  impuesto_otro = 0
+
   valor_base = validate_menu_calculo()
   value_menu = validate_menu_tipo()
   match value_menu:
@@ -47,7 +56,7 @@ def input_data():
     case 4:
       pause_screen()
       try:
-        impuesto_otro_input = int(input(MENU_IMPUESTO_TIPO_OTRO, "\n-> "))
+        impuesto_otro_input = int(input(f"{MENU_IMPUESTO_TIPO_OTRO}\n-> "))
       except ValueError:
         print("valor invalido")
         pause_screen()
@@ -55,12 +64,40 @@ def input_data():
       else:
         impuesto_otro = ((valor_base*impuesto_otro_input)/100)
         pause_screen()
+    case _:
+      print("valor no encontrado")
+      pause_screen()
+      return input_data()
   value_menu_continue = validate_menu_continuar()
   match value_menu_continue:
     case 1:
       return input_data()
     case 2:
       total = iva + impuesto_especial + impuesto_local + impuesto_otro
-      print(MENU_RESULTADO)
-      pause_screen()
+      print(f"""---------------------------------------------------
+                RESULTADO DEL CÁLCULO
+---------------------------------------------------
+Precio Base: ${valor_base}
+Impuesto(s):
+- IVA (10%): ${iva}
+- Impuesto Especial (5%): ${impuesto_especial}
+- Impuesto Local (8%): ${impuesto_local}
+Total con impuestos: ${total}
+
+¿Desea hacer otro cálculo?
+1. Sí
+2. No (Regresa al menú principal)
+---------------------------------------------------""")
+      try:
+        value_menu_again = int(input("-> "))
+      except ValueError:
+        print("ingreso un dato invalido")
+        pause_screen()
+        return
+      else:
+        match value_menu_again:
+          case 1:
+            return input_data()
+          case 2:
+            return 
 
