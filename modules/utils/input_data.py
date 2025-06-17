@@ -41,8 +41,15 @@ def input_data():
   impuesto_local = 0
   impuesto_otro = 0
 
-  valor_base = validate_menu_calculo()
-  value_menu = validate_menu_tipo()
+  # validar ingreso correcto para valor_base
+  valor_base = None
+  while valor_base is None:
+    valor_base = validate_menu_calculo()
+  # lo mismo con el impuesto, se hace en bucle para tener mejor estructura del programa
+  value_menu = None
+  while value_menu is None:
+    value_menu = validate_menu_tipo()
+
   match value_menu:
     case 1:
       iva = (valor_base/10)
@@ -57,23 +64,26 @@ def input_data():
       pause_screen()
       try:
         impuesto_otro_input = int(input(f"{MENU_IMPUESTO_TIPO_OTRO}\n-> "))
+        impuesto_otro = (valor_base * impuesto_otro_input) / 100
       except ValueError:
-        print("valor invalido")
+        print("valor inválido")
         pause_screen()
-        return
-      else:
-        impuesto_otro = ((valor_base*impuesto_otro_input)/100)
-        pause_screen()
+        return input_data()
+      pause_screen()
     case _:
       print("valor no encontrado")
       pause_screen()
       return input_data()
-  value_menu_continue = validate_menu_continuar()
+  # validacion para continuar o mostrar los resultados con un bucle
+  value_menu_continue = None
+  while value_menu_continue is None:
+    value_menu_continue = validate_menu_continuar()
+
   match value_menu_continue:
     case 1:
       return input_data()
     case 2:
-      total = iva + impuesto_especial + impuesto_local + impuesto_otro
+      total = iva + impuesto_especial + impuesto_local + impuesto_otro + valor_base
       print(f"""---------------------------------------------------
                 RESULTADO DEL CÁLCULO
 ---------------------------------------------------
@@ -82,6 +92,7 @@ Impuesto(s):
 - IVA (10%): ${iva}
 - Impuesto Especial (5%): ${impuesto_especial}
 - Impuesto Local (8%): ${impuesto_local}
+- Otro: ${impuesto_otro}
 Total con impuestos: ${total}
 
 ¿Desea hacer otro cálculo?
@@ -100,4 +111,8 @@ Total con impuestos: ${total}
             return input_data()
           case 2:
             return 
+          case _:
+            print("Opción no válida")
+            pause_screen()
+            return input_data()
 

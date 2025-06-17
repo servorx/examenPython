@@ -1,5 +1,5 @@
 MENU_PRINCIPAL = """---------------------------------------------------
-                CALCULADORA DE IMPUESTOS
+            CALCULADORA DE IMPUESTOS
 ---------------------------------------------------
 Seleccione una opción:
 1. Calcular impuesto sobre un producto o servicio
@@ -33,7 +33,7 @@ MENU_IMPUESTO_CONTINUAR = """---------------------------------------------------
 
 
 MENU_VER = """---------------------------------------------------
-                TIPOS DE IMPUESTOS
+            TIPOS DE IMPUESTOS
 ---------------------------------------------------
 1. IVA (10%)
 2. Impuesto Especial (5%)
@@ -46,5 +46,5 @@ MENU_VER = """---------------------------------------------------
 ---------------------------------------------------"""
 
 MENU_SALIR = """---------------------------------------------------
-                ¡Gracias por usar la Calculadora!
+        ¡Gracias por usar la Calculadora!
 ---------------------------------------------------"""
